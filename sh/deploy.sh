@@ -13,7 +13,7 @@ DEST=/$HOME/deploy
 
 rm -rf $DEST
 mkdir -p $DEST
-cp -rf $SRC $DEST
+cp -r $SRC $DEST
 
 cd $DEST/hello
 
