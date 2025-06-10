@@ -3,7 +3,7 @@ var app = express();
 
 
 app.get('/', function(req, res) {
-    res.json("hello node js!!! ec2!!!")
+    res.json("hello node js!!! ec2!!!!")
 })
 
 
