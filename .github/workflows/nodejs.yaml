@@ -1,0 +1,37 @@
+name: NodeJS HelloWorld APP
+run-name: ${{ github.workflow }}
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: Checkout Repository
+        uses2: actions/checkout@v4
+
+      - name: Setip NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18.20.0"
+      
+      - name: Install Dependencies
+        run: |
+          cd nodejs/hello
+          pm2 start app.js --name "hello-app"
+          pm2 save
+      
+      - name: Stop App with pm2
+        run: |
+          pm2 list
+          pm2 stop "hello-app"
+          pm2 delete "hello-app"
+
+      # - name: Keep Pm2 Alive
+      #   run: |
+      #     pm2 list
+      #     sleep infinity
