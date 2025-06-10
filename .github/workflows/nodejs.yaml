@@ -14,12 +14,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setip NodeJS
+      - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: "18.20.0"
       
       - name: Install Dependencies
+        run: |
+          cd nodejs/hello
+          npm install
+          npm install -g pm2
+
+      - name: Run App.js
         run: |
           cd nodejs/hello
           pm2 start app.js --name "hello-app"
