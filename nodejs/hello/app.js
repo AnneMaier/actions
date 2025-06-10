@@ -8,5 +8,5 @@ app.get('/', function(req, res) {
 
 
 app.listen(8000, function(){
-    console.log("server star!t")
+    console.log("server star!!")
 })
